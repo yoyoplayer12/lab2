@@ -21,8 +21,30 @@ export default class World {
     const arraystring = localStorage.getItem('islands');
     const array = JSON.parse(arraystring);
     console.log(array);
+    if(arraystring){
+      //remove all islands?
+      // this.islands = [];
+      
 
-    // loop over the array and addIslands()
+      // loop over the array and addIslands()
+      array.forEach(element => {
+        const island = new Island();
+        island.name = element.name;
+        island.color = element.color;
+        //create island
+        const htmlisland = document.createElement("div");
+        htmlisland.classList.add("island");
+        htmlisland.style.backgroundColor = island.color;
+        htmlisland.style.transform = `translate(-50%, -50%)`;
+        htmlisland.innerHTML = `<h1>${island.name}</h1>`;
+        htmlisland.style.transform = `translate(${element.x}px, ${element.y}px)`;
+        island.element = htmlisland;
+        //add island to array
+        this.islands.push(island);
+        document.body.appendChild(htmlisland);
+    });
+    }
+
   }
 
   getCoordinates() {
@@ -45,16 +67,25 @@ export default class World {
     // this might be a good point to animate the islands with JS Animations API
     const coordinates = this.getCoordinates();
 
-
-    if(coordinates.x === island.island.style.transform.x && coordinates.y === island.island.style.transform.y){
-      console.log("same coordinates");
-      this.moveIsland(island);
-    }
-    else{
-      console.log("different coordinates");
+    if(island.x === 0 && island.y === 0){
+      console.log("new island");
       island.island.style.transform = `translate(${coordinates.x}px, ${coordinates.y}px)`;
       island.x = coordinates.x;
       island.y = coordinates.y;
     }
+    else{
+      // this.checkCoordinates(island, coordinates);
+      console.log("not a new island");
+    }
+    // if(coordinates.x === island.island.style.transform.x && coordinates.y === island.island.style.transform.y){
+    //   console.log("same coordinates");
+    //   this.moveIsland(island);
+    // }
+    // else{
+    //   console.log("different coordinates");
+    //   island.island.style.transform = `translate(${coordinates.x}px, ${coordinates.y}px)`;
+    //   island.x = coordinates.x;
+    //   island.y = coordinates.y;
+    // }
   }
 }
