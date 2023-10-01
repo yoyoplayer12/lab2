@@ -13,7 +13,7 @@ export default class App{
     hookEvents(){
        // add event listeners ENTER key on #add-item-text
          document.querySelector('#btnAddIsland').addEventListener('click', (event) => {
-            this.world.addIsland(new Island());
+            this.world.addIsland(new Island(true));
          });
          document.querySelector('#btnSave').addEventListener('click', (event) => {
             this.world.save();

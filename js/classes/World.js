@@ -28,7 +28,7 @@ export default class World {
 
       // loop over the array and addIslands()
       array.forEach(element => {
-        const island = new Island();
+        const island = new Island(false);
         island.name = element.name;
         island.color = element.color;
         //create island
@@ -66,8 +66,8 @@ export default class World {
   moveIsland(island) {
     // this might be a good point to animate the islands with JS Animations API
     const coordinates = this.getCoordinates();
-
     if(island.x === 0 && island.y === 0){
+      console.log(island);
       console.log("new island");
       island.island.style.transform = `translate(${coordinates.x}px, ${coordinates.y}px)`;
       island.x = coordinates.x;

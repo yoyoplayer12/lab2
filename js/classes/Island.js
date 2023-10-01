@@ -1,7 +1,8 @@
 export default class Island {
-  constructor(name) {
+  constructor(isNew) {
     this.name = this.getRandomName();
     this.color = this.getRandomColor();
+    this.isNew = isNew;
     this.island = this.createIsland();
     this.x = 0;
     this.y = 0;
@@ -16,13 +17,18 @@ export default class Island {
     // remove the element when the animation ended
   }
   createIsland() {
-    const island = document.createElement("div");
-    island.classList.add("island");
-    island.style.backgroundColor = this.color;
-    island.style.transform = `translate(-50%, -50%)`;
-    island.innerHTML = `<h1>${this.name}</h1>`;
-    document.body.appendChild(island);
-    return island;
+    if(this.isNew == true){
+      const island = document.createElement("div");
+      island.classList.add("island");
+      island.style.backgroundColor = this.color;
+      island.style.transform = `translate(-50%, -50%)`;
+      island.innerHTML = `<h1>${this.name}</h1>`;
+      document.body.appendChild(island);
+      return island;
+    }
+    else{
+      console.log("not a new island");
+    }
   }
 
   getRandomName() {
