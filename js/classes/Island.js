@@ -26,5 +26,7 @@ export default class Island {
     ];
 
     // return a random name from the array
+    const randomElement = names[Math.floor(Math.random() * names.length)];
+    return randomElement;
   }
 }

@@ -1,5 +1,5 @@
 // kickstart your world here
-// import Island from './classes/Island.js';
+import Island from './classes/Island.js';
 // import World from './classes/World.js';
 
 export default class App{
@@ -12,6 +12,9 @@ export default class App{
     hookEvents(){
        // add event listeners ENTER key on #add-item-text
          document.querySelector('#btnAddIsland').addEventListener('click', (event) => {
+            let island = new Island();
+            let name = island.getRandomName();
+            console.log(name);
             console.log('Added Island');
          });
          document.querySelector('#btnSave').addEventListener('click', (event) => {
