@@ -1,5 +1,9 @@
 export default class Island {
-  constructor(name) {}
+  constructor(name) {
+    this.name = this.getRandomName();
+    this.color = this.getRandomColor();
+    this.island = this.createIsland();
+  }
 
   getRandomColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
@@ -8,6 +12,15 @@ export default class Island {
   remove() {
     // JS animations api, fade out
     // remove the element when the animation ended
+  }
+  createIsland() {
+    const island = document.createElement("div");
+    island.classList.add("island");
+    island.style.backgroundColor = this.color;
+    island.style.transform = `translate(-50%, -50%)`;
+    island.innerHTML = `<h1>${this.name}</h1>`;
+    document.body.appendChild(island);
+    return island;
   }
 
   getRandomName() {
