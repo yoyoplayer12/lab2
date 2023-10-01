@@ -30,11 +30,21 @@ export default class World {
 
   addIsland(island) {
     // add the islands to the DOM
-    console.log("adding island");
-    console.log(island);
+    this.moveIsland(island);
   }
 
   moveIsland(island) {
     // this might be a good point to animate the islands with JS Animations API
+    const coordinates = this.getCoordinates();
+
+
+    if(coordinates.x === island.island.style.transform.x && coordinates.y === island.island.style.transform.y){
+      console.log("same coordinates");
+      this.moveIsland(island);
+    }
+    else{
+      console.log("different coordinates");
+      island.island.style.transform = `translate(${coordinates.x}px, ${coordinates.y}px)`;
+    }
   }
 }
