@@ -1,22 +1,19 @@
 // kickstart your world here
 import Island from './classes/Island.js';
-// import World from './classes/World.js';
+import World from './classes/World.js';
 
 export default class App{
 
     constructor(){
         console.log('App constructor');
+        this.world = new World();
         this.hookEvents();
     }
 
     hookEvents(){
        // add event listeners ENTER key on #add-item-text
          document.querySelector('#btnAddIsland').addEventListener('click', (event) => {
-            let island = new Island();
-            let name = island.getRandomName();
-            let color = island.getRandomColor();
-            console.log(`adding island: ${name}`);
-            console.log(`adding island: ${color}`);
+            this.world.addIsland(new Island());
          });
          document.querySelector('#btnSave').addEventListener('click', (event) => {
             console.log('Saved Island');
