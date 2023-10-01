@@ -14,6 +14,12 @@ export default class App{
          document.querySelector('#btnAddIsland').addEventListener('click', (event) => {
             console.log('Added Island');
          });
+         document.querySelector('#btnSave').addEventListener('click', (event) => {
+            console.log('Saved Island');
+         });
+         document.querySelector('#btnLoad').addEventListener('click', (event) => {
+            console.log('Loaded Island');
+         });
 
 
         
