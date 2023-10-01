@@ -53,6 +53,8 @@ export default class World {
     else{
       console.log("different coordinates");
       island.island.style.transform = `translate(${coordinates.x}px, ${coordinates.y}px)`;
+      island.x = coordinates.x;
+      island.y = coordinates.y;
     }
   }
 }

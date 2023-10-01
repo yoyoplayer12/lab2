@@ -3,6 +3,8 @@ export default class Island {
     this.name = this.getRandomName();
     this.color = this.getRandomColor();
     this.island = this.createIsland();
+    this.x = 0;
+    this.y = 0;
   }
 
   getRandomColor() {
