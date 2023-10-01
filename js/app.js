@@ -14,8 +14,9 @@ export default class App{
          document.querySelector('#btnAddIsland').addEventListener('click', (event) => {
             let island = new Island();
             let name = island.getRandomName();
-            console.log(name);
-            console.log('Added Island');
+            let color = island.getRandomColor();
+            console.log(`adding island: ${name}`);
+            console.log(`adding island: ${color}`);
          });
          document.querySelector('#btnSave').addEventListener('click', (event) => {
             console.log('Saved Island');
