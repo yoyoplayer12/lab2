@@ -16,10 +16,10 @@ export default class App{
             this.world.addIsland(new Island());
          });
          document.querySelector('#btnSave').addEventListener('click', (event) => {
-            console.log('Saved Island');
+            this.world.save();
          });
          document.querySelector('#btnLoad').addEventListener('click', (event) => {
-            console.log('Loaded Island');
+            this.world.load();
          });
 
 

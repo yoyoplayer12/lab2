@@ -11,11 +11,17 @@ export default class World {
 
   save() {
     // save array islands to localstorage as string
+    const jsonString = JSON.stringify(this.islands);
+    localStorage.setItem('islands', jsonString);
     // loop over all this.islands and save the names
   }
 
   load() {
     // load islands from localstorage into array
+    const arraystring = localStorage.getItem('islands');
+    const array = JSON.parse(arraystring);
+    console.log(array);
+
     // loop over the array and addIslands()
   }
 
@@ -31,6 +37,8 @@ export default class World {
   addIsland(island) {
     // add the islands to the DOM
     this.moveIsland(island);
+    this.islands.push(island);
+    console.log(this.islands);
   }
 
   moveIsland(island) {
