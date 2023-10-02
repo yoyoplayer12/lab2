@@ -23,6 +23,9 @@ export default class Island {
       island.style.backgroundColor = this.color;
       island.style.transform = `translate(-50%, -50%)`;
       island.innerHTML = `<h1>${this.name}</h1>`;
+      island.onclick = function() {
+          this.remove();
+        };
       document.body.appendChild(island);
       return island;
     }
